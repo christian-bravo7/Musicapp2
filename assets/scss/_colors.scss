@@ -1,0 +1,89 @@
+// Light theme
+$primary-light: #032030;
+$secondary-light: #1794a5;
+$tertiary-light: #f71e35;
+$quaternary-light: #94e9ad;
+$black-light: #161616;
+$white-light: #d0dfe6;
+$background-100-light: #eeeeee;
+$background-200-light: darken(
+  $color: $background-100-light,
+  $amount: 3
+);
+$background-300-light: darken(
+  $color: $background-100-light,
+  $amount: 8
+);
+$text-light: #000000;
+$link-light: #2e8a85;
+$link-lighten-light: rgba($link-light, 0.1);
+$secondary-bold-light: darken(
+  $color: $secondary-light,
+  $amount: 8
+);
+
+// Dark theme
+$primary-dark: #f18805;
+$secondary-dark: #ff5376;
+$tertiary-dark: #8b1e3f;
+$quaternary-dark: #65001c;
+$black-dark: #161616;
+$white-dark: #d0dfe6;
+$background-100-dark: #303030;
+$background-200-dark: darken(
+  $color: $background-100-dark,
+  $amount: 3
+);
+$background-300-dark: darken(
+  $color: $background-100-dark,
+  $amount: 8
+);
+$text-dark: #ececec;
+$link-dark: #ec98af;
+$link-lighten-dark: rgba($link-dark, 0.1);
+$secondary-bold-dark: darken(
+  $color: $secondary-dark,
+  $amount: 8
+);
+
+$warning: #edff91;
+$success: #5ac7a2;
+$danger: #fd7e8e;
+
+body[data-theme="light"] {
+  --primary: #{$primary-light};
+  --secondary: #{$secondary-light};
+  --secondary-bold: #{$secondary-bold-light};
+  --tertiary: #{$tertiary-light};
+  --quaternary: #{$quaternary-light};
+  --link: #{$link-light};
+  --link-lighten: #{$link-lighten-light};
+  --text: #{$text-light};
+  --background-100: #{$background-100-light};
+  --background-200: #{$background-200-light};
+  --background-300: #{$background-300-light};
+  --black: #{$black-light};
+  --white: #{$white-light};
+  --warning: #{$warning};
+  --success: #{$success};
+  --danger: #{$danger};
+}
+
+body[data-theme="dark"] {
+  --primary: #{$primary-dark};
+  --secondary: #{$secondary-dark};
+  --secondary-bold: #{$secondary-bold-dark};
+  --tertiary: #{$tertiary-dark};
+  --quaternary: #{$quaternary-dark};
+  --link: #{$link-dark};
+  --link-lighten: #{$link-lighten-dark};
+  --text: #{$text-dark};
+  --background-100: #{$background-100-dark};
+  --background-200: #{$background-200-dark};
+  --background-300: #{$background-300-dark};
+  --black: #{$black-dark};
+  --white: #{$white-dark};
+  --warning: #{$warning};
+  --success: #{$success};
+  --danger: #{$danger};
+}
