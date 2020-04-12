@@ -23,7 +23,8 @@
     "nuxt": "^2.12.2",
     "nuxt-property-decorator": "^2.5.1",
     "qs": "^6.9.3",
-    "querystring": "^0.2.0"
+    "querystring": "^0.2.0",
+    "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
@@ -38,6 +39,7 @@
     "jest": "^24.1.0",
     "sass-loader": "^8.0.2",
     "ts-jest": "^25.0.0",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "vuex-module-decorators": "^0.16.1"
   }
 }

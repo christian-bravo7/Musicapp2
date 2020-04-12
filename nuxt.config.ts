@@ -50,8 +50,9 @@ const config: Configuration = {
     ],
   },
   plugins: [
-    '@/plugins/axios',
-    '@/plugins/initAPI',
+    { src: '@/plugins/axios' },
+    { src: '@/plugins/initAPI' },
+    { src: '@/plugins/persistStore', mode: 'client' },
   ],
   /*
   ** Nuxt.js dev-modules
