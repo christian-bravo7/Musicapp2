@@ -1,5 +1,6 @@
 import { stringify } from 'qs';
 import { APIClient } from '@/api';
+import TransformData from '@/utils/transformData';
 
 export async function requestAccessToken (code: string) {
   const clientID = process.env.clientID;
@@ -23,5 +24,6 @@ export async function requestAccessToken (code: string) {
   const { data } = await APIClient.getInstance()
     .post('/api/token', encodedParams, requestConfig);
 
-  return data;
+  const response = new TransformData(data).toCamelCase('_');
+  return response;
 }

@@ -1,4 +1,6 @@
 import { Configuration } from '@nuxt/types';
+import Locales from './lang';
+
 require('dotenv').config();
 
 const config: Configuration = {
@@ -27,7 +29,13 @@ const config: Configuration = {
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&display=swap',
+        href:
+          'https://fonts.googleapis.com/css2?family=Yantramanav:wght@300;500;900&display=swap',
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/icon?family=Material+Icons',
       },
     ],
   },
@@ -52,6 +60,8 @@ const config: Configuration = {
   plugins: [
     { src: '@/plugins/axios' },
     { src: '@/plugins/initAPI' },
+    { src: '@/plugins/markdown' },
+    { src: '@/plugins/vueTyper', mode: 'client' },
     { src: '@/plugins/persistStore', mode: 'client' },
   ],
   /*
@@ -69,6 +79,7 @@ const config: Configuration = {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/proxy',
+    'nuxt-i18n',
   ],
   serverMiddleware: [
     { path: 'login', handler: '@/server/middlewares/login' },
@@ -79,6 +90,32 @@ const config: Configuration = {
   */
   axios: {
     baseURL: `${process.env.apiURL}`,
+  },
+  i18n: {
+    locales: Locales,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: false,
+    },
+    defaultLocale: 'en',
+    strategy: 'prefix_and_default',
+    langDir: 'lang/',
+    lazy: true,
+    vueI18n: {
+      fallbackLocale: 'en',
+      preserveState: false,
+    },
+    vuex: {
+      // Module namespace
+      moduleName: 'i18nStore',
+      // If enabled, current app's locale is synced with nuxt-i18n store module
+      syncLocale: false,
+      // If enabled, current translation messages are synced with nuxt-i18n store module
+      syncMessages: false,
+      // Mutation to commit to set route parameters translations
+      syncRouteParams: true,
+    },
   },
   proxy: {
     '/authorize': {

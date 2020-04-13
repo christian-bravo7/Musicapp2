@@ -9,14 +9,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { requestAccessToken } from '@/api/auth';
+import { authStore } from '@/store';
 
 @Component
 export default class Dashboard extends Vue {
   async request () {
     const { code } = this.$route.query;
-    const response = await requestAccessToken(code);
-    console.log(response);
+    await authStore.requestAccessToken(code as string);
   }
 }
 </script>

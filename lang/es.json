@@ -1,0 +1,12 @@
+{
+  "landing": {
+    "banner-text": "La música que",
+    "banner-word-1": "amas ❤",
+    "banner-word-2": "sientes 🌞",
+    "banner-word-3": "disfrutas 🎵",
+    "banner-word-4": "te gusta 🥰",
+    "start-label": "Comenzar ahora",
+    "coming-soon-label": "Próximamente 😉",
+    "footer-api-reference-link": "Musicapp utiliza la [API oficial de Spotify]({spotifyAPILink})"
+  }
+}

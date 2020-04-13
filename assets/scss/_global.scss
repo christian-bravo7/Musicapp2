@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+button,
+select {
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 0px blue !important;
+  }
+}
+
 body {
-  font-family: "Comic Neue", sans-serif;
+  font-family: "Yantramanav", sans-serif;
 }
