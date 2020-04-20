@@ -2,9 +2,11 @@
   <NuxtLink
     :to="localePath('index')"
     class="logo"
+    :class="{ 'logo--spacing-right': wordmark }"
   >
     <figure
-      class="logo__figure"
+      class="logo__thumbnail"
+      :class="{ 'logo__thumbnail--spacing-right': wordmark }"
     >
       <img
         class="logo__image"
@@ -12,34 +14,64 @@
         alt="logo"
       >
     </figure>
+    <p
+      v-if="wordmark"
+      class="logo__wordmark"
+    >
+      musicapp
+      <span class="logo__country">
+        {{ country }}
+      </span>
+    </p>
   </NuxtLink>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 @Component
-export default class AppLogo extends Vue {}
+export default class AppLogo extends Vue {
+  @Prop({ type: Boolean }) wordmark!: boolean;
+  @Prop({ type: String }) country!: string;
+}
 
 </script>
 
 <style lang="scss" scoped>
 
 .logo {
-  display: inline-block;
-  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 
-  &:hover {
-    transform: scale(1.1) rotate(5deg);
+  &--spacing-right {
+    margin-right: rem(8);
   }
-  &__figure {
+
+  &__thumbnail {
     width: rem(70);
     height: rem(70);
+    transition: all 0.3s ease;
 
-    @media screen and (max-width: 720px) {
-      width: rem(60);
-      height: rem(60);
+    &--spacing-right {
+      margin-right: rem(4);
+    }
+
+    &:hover {
+      transform: scale(1.05) rotate(2deg);
     }
   }
+
+  &__wordmark {
+    position: relative;
+  }
+
+  &__country {
+    font-size: em(10);
+    position: absolute;
+    top: rem(-2);
+    left: 100%;
+  }
+
   &__image {
     width: 100%;
     height: 100%;

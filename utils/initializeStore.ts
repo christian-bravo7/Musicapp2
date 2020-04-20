@@ -1,20 +1,19 @@
 /* eslint-disable import/no-mutable-exports */
-
 import { Store } from 'vuex';
 import { getModule } from 'vuex-module-decorators';
-import guest from '@/store/guest';
 import auth from '@/store/auth';
+import user from '@/store/user';
 
-let guestStore: guest;
 let authStore: auth;
+let userStore: user;
 
-function initialiseStores (store: Store<any>): void {
-  guestStore = getModule(guest, store);
+function initializeStores (store: Store<any>): void {
   authStore = getModule(auth, store);
+  userStore = getModule(user, store);
 }
 
 export {
-  initialiseStores,
-  guestStore,
+  initializeStores,
   authStore,
+  userStore,
 };

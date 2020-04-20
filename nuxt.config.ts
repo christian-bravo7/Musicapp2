@@ -4,8 +4,9 @@ import Locales from './lang';
 require('dotenv').config();
 
 const config: Configuration = {
-  mode: 'universal',
+  mode: 'spa',
   env: {
+    authURL: process.env.AUTH_URL || 'https://example.com',
     apiURL: process.env.API_URL || 'https://example.com',
     clientID: process.env.CLIENT_ID || '0',
     clientSecret: process.env.CLIENT_SECRET || '0',
@@ -15,7 +16,7 @@ const config: Configuration = {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.APP_NAME || 'Musicapp',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -30,7 +31,7 @@ const config: Configuration = {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Yantramanav:wght@300;500;900&display=swap',
+          'https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700;900&display=swap',
       },
       {
         rel: 'stylesheet',
@@ -61,7 +62,7 @@ const config: Configuration = {
     { src: '@/plugins/axios' },
     { src: '@/plugins/initAPI' },
     { src: '@/plugins/markdown' },
-    { src: '@/plugins/vueTyper', mode: 'client' },
+    { src: '@/plugins/vueTyper' },
     { src: '@/plugins/persistStore', mode: 'client' },
   ],
   /*
@@ -78,16 +79,8 @@ const config: Configuration = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/proxy',
     'nuxt-i18n',
   ],
-  serverMiddleware: [
-    { path: 'login', handler: '@/server/middlewares/login' },
-  ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
   axios: {
     baseURL: `${process.env.apiURL}`,
   },
@@ -117,11 +110,10 @@ const config: Configuration = {
       syncRouteParams: true,
     },
   },
-  proxy: {
-    '/authorize': {
-      target: `${process.env.apiURL}`,
-      changeOrigin: false,
-      pathRewrite: { '^/authorize': '' },
+  typescript: {
+    ignoreNotFoundWarnings: true,
+    typeCheck: {
+      eslint: true,
     },
   },
   /*

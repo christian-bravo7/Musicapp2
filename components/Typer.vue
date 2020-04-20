@@ -1,5 +1,5 @@
 <template>
-  <no-ssr>
+  <client-only>
     <vue-typer
       class="typer"
       :text="words"
@@ -14,7 +14,7 @@
       :erase-on-complete="false"
       caret-animation="smooth"
     />
-  </no-ssr>
+  </client-only>
 </template>
 <script lang="ts">
 

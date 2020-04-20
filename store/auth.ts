@@ -10,7 +10,7 @@ import { Dictionary } from '@/utils/models';
 export default class AuthStore extends VuexModule {
   requestTokenData: Dictionary = {
     accessToken: '',
-    tokenType: '',
+    tokenType: 'Basic',
     expirationTime: 0,
     refreshToken: '',
     scope: '',
@@ -21,9 +21,15 @@ export default class AuthStore extends VuexModule {
     this.requestTokenData = requestTokenData;
   }
 
-  @Action
+  @Action({ rawError: true })
   async requestAccessToken (code: string): Promise<void> {
     const response = await requestAccessToken(code);
+    this.setRequestTokenData(response);
+  }
+
+  @Action({ rawError: true })
+  async refreshAccessToken (refreshToken: string): Promise<void> {
+    const response = await requestAccessToken(refreshToken);
     this.setRequestTokenData(response);
   }
 }

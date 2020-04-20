@@ -10,14 +10,18 @@
         </p>
         <Typer :words="words" />
       </div>
-      <NuxtLink :to="localePath('coming-soon')" class="landing-page__login-button">
+      <a
+        class="landing-page__login-button"
+        :href="loginURL"
+      >
         {{ $t('landing.start-label') }}
-      </NuxtLink>
+      </a>
     </section>
   </section>
 </template>
 
 <script lang="ts">
+import { stringify } from 'qs';
 import { Component, Vue } from 'nuxt-property-decorator';
 import Typer from '@/components/Typer.vue';
 import LanguagePicker from '@/components/LanguagePicker.vue';
@@ -40,6 +44,32 @@ export default class IndexPage extends Vue {
       this.$t('landing.banner-word-4') as string,
     ];
   }
+
+  get loginURL (): string {
+    const state = this.generateRandomString(16);
+    const scope = 'user-read-private user-read-email';
+
+    const queryParams = stringify({
+      response_type: 'code',
+      client_id: process.env.clientID,
+      redirect_uri: process.env.redirectURL,
+      scope,
+      state,
+    });
+
+    const authURL = `${process.env.authURL}/authorize?${queryParams}`;
+    return authURL;
+  }
+
+  generateRandomString (length: number): string {
+    let text = '';
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  };
 }
 </script>
 

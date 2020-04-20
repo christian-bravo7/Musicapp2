@@ -4,6 +4,6 @@ import VuexPersistence from 'vuex-persist';
 export default function ({ store }: Context) {
   new VuexPersistence({
     storage: window.localStorage,
-    modules: ['guest'],
+    modules: ['auth'],
   }).plugin(store);
 }

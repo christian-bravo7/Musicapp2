@@ -9,17 +9,28 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { authStore } from '@/store';
+import { userStore } from '@/store';
+import { getNewReleases } from '@/api/browse';
 
-@Component
+@Component({
+  head () {
+    return {
+      titleTemplate: '%s | Dashboard',
+    };
+  },
+  layout: 'authenticated',
+  async middleware () {
+    await userStore.retrieveUserProfile();
+    await getNewReleases();
+  },
+})
 export default class Dashboard extends Vue {
   async request () {
-    const { code } = this.$route.query;
-    await authStore.requestAccessToken(code as string);
+    await userStore.retrieveUserProfile();
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
