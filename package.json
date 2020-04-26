@@ -31,6 +31,8 @@
     "nuxt-property-decorator": "^2.5.1",
     "qs": "^6.9.3",
     "querystring": "^0.2.0",
+    "swiper": "^5.3.8",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-typer": "^1.2.0",
     "vuex-module-decorators": "^0.10.1",
     "vuex-persist": "^2.2.0"
@@ -40,6 +42,7 @@
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@types/node": "^13.11.1",
+    "@types/swiper": "^5.3.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",

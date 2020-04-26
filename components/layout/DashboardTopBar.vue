@@ -1,15 +1,15 @@
 <template>
-  <nav class="navigation-bar">
-    <div class="navigation-bar__search-input-wrapper">
-      <i class="material-icons navigation-bar__search-icon">
+  <nav class="topbar">
+    <div class="topbar__search-input-wrapper">
+      <i class="material-icons topbar__search-icon">
         search
       </i>
-      <input class="navigation-bar__search-input" type="text">
+      <input class="topbar__search-input" type="text">
     </div>
     <AppLogo
-      class="navigation-bar__logo"
-      wordmark
+      class="topbar__logo"
       :country="country"
+      wordmark
     />
   </nav>
 </template>
@@ -24,7 +24,7 @@ import { userStore } from '@/store';
     AppLogo,
   },
 })
-export default class NavigationBar extends Vue {
+export default class DashboardTopBar extends Vue {
   get country () {
     return userStore.profile.country;
   }
@@ -33,7 +33,7 @@ export default class NavigationBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.navigation-bar {
+.topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,7 +50,7 @@ export default class NavigationBar extends Vue {
     width: 100%;
     border-radius: rem(40);
     border: none;
-    background-color: #f1f1f1;
+    background-color: var(--background-200);
     padding: rem(8) rem(16);
     outline: none;
     font-size: em(16);

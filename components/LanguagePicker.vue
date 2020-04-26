@@ -73,7 +73,7 @@ export default class LanguagePicker extends Vue {
   display: inline-block;
   border-radius: rem(40);
   padding: 0 rem(8);
-  border: 1px solid var(--secondary);
+  border: 1px solid var(--text);
 
   &__flex-wrapper {
     display: flex;
@@ -89,6 +89,10 @@ export default class LanguagePicker extends Vue {
     }
   }
 
+  &__option {
+    color: var(--black);
+  }
+
   &__select {
     appearance: none;
     background-color: transparent;
@@ -96,10 +100,11 @@ export default class LanguagePicker extends Vue {
     height: rem(30);
     padding: 0 rem(32);
     cursor: pointer;
+    color: var(--text);
   }
 
   &__language-icon, &__arrow-icon {
-    color: var(--secondary);
+    color: var(--text);
     font-size: em(16);
   }
 

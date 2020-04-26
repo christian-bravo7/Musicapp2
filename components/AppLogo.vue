@@ -42,6 +42,7 @@ export default class AppLogo extends Vue {
   display: flex;
   align-items: center;
   text-decoration: none;
+  user-select: none;
 
   &--spacing-right {
     margin-right: rem(8);
@@ -63,6 +64,7 @@ export default class AppLogo extends Vue {
 
   &__wordmark {
     position: relative;
+    color: var(--text);
   }
 
   &__country {

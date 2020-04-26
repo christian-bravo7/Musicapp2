@@ -30,24 +30,28 @@ export default class SidebarProfile extends Vue {
   padding: rem(16);
 
   &__thumbnail {
-    width: rem(60);
-    height: rem(60);
+    width: rem(70);
+    height: rem(70);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: rem(16);
     border-radius: 50%;
-    background-color: white;
+    padding: rem(2);
+    background-color: var(--white);
     overflow: hidden;
   }
 
   &__image {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
 
   &__username {
     font-size: em(16);
+    color: var(--text);
   }
 }
+
 </style>

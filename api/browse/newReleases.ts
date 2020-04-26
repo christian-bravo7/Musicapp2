@@ -6,11 +6,11 @@ export async function getNewReleases (): Promise<any> {
   setApiURL();
 
   const { data } = await APIClient.getInstance()
-    .get('/browse/new-releases?country=SE&offset=0&limit=20');
+    .get('/browse/new-releases?country=GT&offset=0&limit=20');
 
   const response = new TransformData(data).toCamelCase('_');
 
-  console.log(response);
+  const albums = response.albums.items;
 
-  return response;
+  return albums;
 }

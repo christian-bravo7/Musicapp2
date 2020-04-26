@@ -30,11 +30,11 @@ export default class Typer extends Vue {
 <style lang="scss" scoped>
 .typer {
   /deep/.custom.char.typed {
-    color: #F43469;
+    color: var(--brand);
   }
   /deep/ .custom.caret {
     width: 5px;
-    background-color: #F43469;
+    background-color: var(--brand);
   }
 }
 </style>

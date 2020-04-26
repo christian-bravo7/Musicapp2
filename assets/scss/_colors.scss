@@ -1,11 +1,17 @@
+// GLOBAL COLORS
+$brand: #f43469;
+$warning: #edff91;
+$success: #5ac7a2;
+$danger: #fd7e8e;
+$black: #161616;
+$white: #f1f1f1;
+
 // Light theme
 $primary-light: #032030;
 $secondary-light: #1794a5;
 $tertiary-light: #f71e35;
 $quaternary-light: #94e9ad;
-$black-light: #161616;
-$white-light: #d0dfe6;
-$background-100-light: #eeeeee;
+$background-100-light: #e9e9e9;
 $background-200-light: darken(
   $color: $background-100-light,
   $amount: 3
@@ -27,8 +33,6 @@ $primary-dark: #f18805;
 $secondary-dark: #ff5376;
 $tertiary-dark: #8b1e3f;
 $quaternary-dark: #65001c;
-$black-dark: #161616;
-$white-dark: #d0dfe6;
 $background-100-dark: #303030;
 $background-200-dark: darken(
   $color: $background-100-dark,
@@ -46,9 +50,14 @@ $secondary-bold-dark: darken(
   $amount: 8
 );
 
-$warning: #edff91;
-$success: #5ac7a2;
-$danger: #fd7e8e;
+body {
+  --brand: #{$brand};
+  --warning: #{$warning};
+  --success: #{$success};
+  --danger: #{$danger};
+  --black: #{$black};
+  --white: #{$white};
+}
 
 body[data-theme="light"] {
   --primary: #{$primary-light};
@@ -62,11 +71,6 @@ body[data-theme="light"] {
   --background-100: #{$background-100-light};
   --background-200: #{$background-200-light};
   --background-300: #{$background-300-light};
-  --black: #{$black-light};
-  --white: #{$white-light};
-  --warning: #{$warning};
-  --success: #{$success};
-  --danger: #{$danger};
 }
 
 body[data-theme="dark"] {
@@ -81,9 +85,4 @@ body[data-theme="dark"] {
   --background-100: #{$background-100-dark};
   --background-200: #{$background-200-dark};
   --background-300: #{$background-300-dark};
-  --black: #{$black-dark};
-  --white: #{$white-dark};
-  --warning: #{$warning};
-  --success: #{$success};
-  --danger: #{$danger};
 }

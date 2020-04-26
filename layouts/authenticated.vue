@@ -2,7 +2,7 @@
   <main class="authenticated">
     <Sidebar class="authenticated__sidebar" />
     <section class="authenticated__main">
-      <NavigationBar />
+      <DashboardTopBar />
       <section class="authenticated__content">
         <nuxt />
       </section>
@@ -12,15 +12,25 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+import { MetaInfo } from 'vue-meta';
+
 import LanguagePicker from '@/components/LanguagePicker.vue';
 import Sidebar from '@/components/layout/sidebar/Sidebar.vue';
-import NavigationBar from '@/components/layout/NavigationBar.vue';
+import DashboardTopBar from '@/components/layout/DashboardTopBar.vue';
+import { settingsStore } from '@/store';
 
 @Component({
   components: {
     LanguagePicker,
     Sidebar,
-    NavigationBar,
+    DashboardTopBar,
+  },
+  head (): MetaInfo {
+    return {
+      bodyAttrs: {
+        'data-theme': settingsStore.theme,
+      },
+    };
   },
 })
 export default class AuthenticatedLayout extends Vue {
@@ -39,6 +49,7 @@ export default class AuthenticatedLayout extends Vue {
   min-height: 100vh;
   width: 100%;
   position: relative;
+  background-color: var(--background-100);
 
   &__sidebar {
     position: fixed;
